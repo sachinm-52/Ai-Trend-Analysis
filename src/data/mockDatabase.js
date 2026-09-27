@@ -208,6 +208,73 @@ const AI_REPORT = {
     { question: 'What could disrupt the current AI paradigm?', topic: 'AI Disruption' },
     { question: 'How can a developer build with AI today?', topic: 'AI Development' },
   ],
+  // ── Past / Present / Future structured data ──
+  exactTopic: 'Artificial Intelligence',
+  topicType: 'concept',
+  geographicContext: ['Global'],
+  timeContext: 'current',
+  past: {
+    origin: {
+      period: '1950s',
+      location: 'United States (Dartmouth College)',
+      description: 'Alan Turing proposed machine intelligence in 1950. The term "Artificial Intelligence" was coined at the 1956 Dartmouth Conference by John McCarthy and Marvin Minsky, establishing AI as an academic discipline. Early AI relied on symbolic logic and hand-crafted rules.',
+    },
+    importantPeople: [
+      { name: 'Alan Turing', role: 'Theoretical Founder', org: 'University of Manchester', period: '1950s', contribution: 'Proposed the Turing Test in "Computing Machinery and Intelligence" (1950), establishing the conceptual framework for machine intelligence.' },
+      { name: 'John McCarthy', role: 'AI Pioneer & Coin Inventor', org: 'MIT / Stanford', period: '1956–1980s', contribution: 'Coined the term "Artificial Intelligence" at Dartmouth (1956). Created Lisp programming language. Founded Stanford AI Lab.' },
+      { name: 'Geoffrey Hinton', role: 'Deep Learning Pioneer', org: 'University of Toronto / Google', period: '1980s–2023', contribution: 'Rediscovered backpropagation (1986). Co-invented deep learning. AlexNet (2012). Nobel Prize in Physics (2024) for neural networks. Resigned from Google to warn about AI risks.' },
+      { name: 'Yann LeCun', role: 'CNN Pioneer', org: 'Bell Labs / Meta AI', period: '1989–present', contribution: 'Invented Convolutional Neural Networks (1989). Developed LeNet for digit recognition. Now Chief AI Scientist at Meta.' },
+      { name: 'Sam Altman', role: 'CEO, OpenAI', org: 'OpenAI', period: '2019–present', contribution: 'Led OpenAI through ChatGPT launch (2022), GPT-4, and its transformation into the world\'s most prominent AI company.' },
+      { name: 'Jensen Huang', role: 'CEO, NVIDIA', org: 'NVIDIA', period: '1993–present', contribution: 'Built NVIDIA into the backbone of AI compute. CUDA platform (2007) became the universal AI training substrate.' },
+    ],
+    importantOrgs: [
+      { name: 'Dartmouth College', type: 'institution', role: 'Birthplace of AI as a discipline — hosted the 1956 Dartmouth Conference where AI was formally named.', period: '1956' },
+      { name: 'OpenAI', type: 'company', role: 'Created ChatGPT (2022) which triggered the modern AI wave. Develops GPT-4, o3, DALL-E, Sora.', period: '2015–present' },
+      { name: 'Google DeepMind', type: 'company', role: 'AlphaGo (2016), AlphaFold (2020) protein folding breakthrough, Gemini. Foundational AI research.', period: '2010–present' },
+      { name: 'Anthropic', type: 'company', role: 'Founded 2021 by ex-OpenAI researchers. Safety-focused. Develops Claude model family.', period: '2021–present' },
+      { name: 'NVIDIA', type: 'company', role: 'GPU manufacturer whose H100/H200/Blackwell chips power ~90% of AI training globally.', period: '2007–present' },
+    ],
+    turningPoints: [
+      { year: '2012', event: 'AlexNet wins ImageNet', significance: 'Proved deep learning decisively outperforms classical methods. Launched the modern deep learning era.', entities: ['Geoffrey Hinton', 'Alex Krizhevsky', 'Ilya Sutskever'] },
+      { year: '2017', event: '"Attention Is All You Need" paper', significance: 'Transformer architecture published. Every modern LLM (GPT, Claude, Gemini, LLaMA) uses transformers.', entities: ['Google Brain', 'Vaswani et al.'] },
+      { year: '2020', event: 'GPT-3 released', significance: '175B parameter model demonstrated emergent general-purpose AI capabilities for the first time.', entities: ['OpenAI', 'Sam Altman'] },
+      { year: '2022', event: 'ChatGPT launch', significance: 'Fastest product to 100M users in history. Brought AI into mainstream consciousness. Triggered $300B+ investment wave.', entities: ['OpenAI', 'Sam Altman'] },
+      { year: '2024', event: 'AI Agents go mainstream', significance: 'AI shifted from answering questions to autonomously taking actions in browsers and software.', entities: ['Anthropic', 'OpenAI', 'Google'] },
+    ],
+  },
+  present: {
+    currentStatus: 'Artificial Intelligence in September 2026 is at an unprecedented acceleration point. Agentic AI systems — models that autonomously plan and execute multi-step tasks — have become mainstream. Reasoning models (like OpenAI o3 and Claude 3.7) can solve graduate-level problems. Every major technology company has reorganized around AI.',
+    statusDate: 'September 2026',
+    latestDevelopments: [
+      { headline: 'OpenAI o3 Achieves 87.5% on ARC-AGI Benchmark', date: 'Sep 2025', entity: 'OpenAI', summary: 'OpenAI\'s o3 reasoning model scored 87.5% on ARC-AGI, a benchmark designed to test general intelligence. Extended chain-of-thought reasoning enabled performance approaching human-level generalization.', source: 'TechCrunch', url: 'https://techcrunch.com', type: 'news' },
+      { headline: 'Anthropic Raises $4B, Valued at $40B', date: 'Aug 2025', entity: 'Anthropic', summary: 'Anthropic received $4B from Amazon and Google investors, valuing the company at $40B. Funds are earmarked for compute infrastructure and AI safety research for the Claude model family.', source: 'Bloomberg', url: 'https://bloomberg.com', type: 'news' },
+      { headline: 'EU AI Act Full Enforcement Begins', date: 'Aug 2025', entity: 'European Union', summary: 'The EU AI Act moved to full enforcement, requiring high-risk AI systems to meet strict transparency, testing, and registration requirements. First comprehensive AI law globally.', source: 'Reuters', url: 'https://reuters.com', type: 'regulatory' },
+      { headline: 'Google Unveils Project Astra for Real-World Autonomous Tasks', date: 'Jul 2025', entity: 'Google', summary: 'Project Astra demonstrates multimodal AI agents able to observe, plan, and execute tasks across apps, browsers, and physical devices autonomously.', source: 'Wired', url: 'https://wired.com', type: 'announcement' },
+    ],
+    groupedCoverage: [
+      { event: 'AI Agent Platforms Launch', date: 'Q3 2025', sources: [{ name: 'OpenAI', url: 'https://openai.com' }, { name: 'Anthropic', url: 'https://anthropic.com' }, { name: 'TechCrunch', url: 'https://techcrunch.com' }] },
+      { event: 'EU AI Act Enforcement', date: 'Aug 2025', sources: [{ name: 'Reuters', url: 'https://reuters.com' }, { name: 'Euractiv', url: 'https://euractiv.com' }, { name: 'The Verge', url: 'https://theverge.com' }] },
+    ],
+  },
+  future: {
+    disclaimer: 'AI-generated scenario analysis based on current signals. Not confirmed information.',
+    nearTerm: [
+      { horizon: 'Next several months', scenario: 'AI Agent Proliferation', signals: ['Claude Computer Use shipped', 'OpenAI Operator launched', 'Millions of agent-based products'], opportunities: ['New automation layer for businesses', 'Personal AI assistants for consumers'], challenges: ['Reliability of multi-step tasks', 'Security and authorization risks'], trigger: 'One widely-deployed reliable consumer AI agent', impact: 'Significant productivity gains; new software layer created', uncertainty: 'medium', type: 'growth' },
+      { horizon: 'Next several months', scenario: 'AI Regulatory Fragmentation', signals: ['EU AI Act live', 'US state laws emerging', 'China national AI strategy'], opportunities: ['Compliance tooling market', 'Safe AI certification services'], challenges: ['Compliance costs for global companies', 'Geographic AI capability gaps'], trigger: 'High-profile AI incident triggers reactive legislation', impact: 'Increased regulatory burden for AI companies', uncertainty: 'low', type: 'risk' },
+    ],
+    mediumTerm: [
+      { horizon: '1-3 years', scenario: 'AGI Debate Resolved or Intensified', signals: ['Reasoning benchmarks improving rapidly', 'Scaling law continuation'], opportunities: ['New fields unlocked by general AI', 'Scientific discovery acceleration'], challenges: ['Existential risk concerns', 'Economic disruption acceleration'], trigger: 'Model passing all domain expert benchmarks consistently', impact: 'Massive economic and geopolitical restructuring', uncertainty: 'high', type: 'disruption' },
+    ],
+    longTerm: [
+      { horizon: '3-10 years', scenario: 'Human-AI Cognitive Integration', signals: ['Neuralink progress', 'AR/VR + AI interfaces maturing'], opportunities: ['Enhanced human capabilities', 'New forms of creativity and problem solving'], challenges: ['Safety of brain-computer interfaces', 'Equity of access'], trigger: 'First mass-market BCI product with AI integration', impact: 'Fundamental change to human cognition and work', uncertainty: 'high', type: 'disruption' },
+    ],
+    futureSignals: [
+      { signal: 'AI reasoning models improving quarterly', impact: 'Each generation solves harder problems', implication: 'Near-human expert performance in specialized domains within 2 years' },
+      { signal: 'National AI infrastructure buildouts (UAE, India, France, Singapore)', impact: 'Reduces US/China AI dominance', implication: 'Multipolar AI world with regional AI capabilities and regulations' },
+      { signal: 'AI-designed AI architectures (Neural Architecture Search)', impact: 'AI can improve its own design', implication: 'Recursive capability improvement; potentially exponential progress' },
+      { signal: 'Physical AI robots (Tesla Optimus, Figure AI)', impact: 'AI enters the physical world', implication: 'Manufacturing, logistics, and domestic work automation in 5+ years' },
+    ],
+  },
 };
 
 // ──────────────────────────────────────────────────
@@ -472,22 +539,23 @@ export function generateDynamicReport(topic) {
       ],
     },
     sources: [
-      { name: 'Industry Reports', title: `Analysis of ${cleanTopic} trends`, type: 'data', date: '2025', url: '#' },
-      { name: 'Academic Research', title: 'Peer-reviewed studies in related areas', type: 'research', date: '2024-2025', url: '#' },
+      { name: 'Industry Reports', title: `${cleanTopic} Market Analysis`, type: 'data', date: '2025', url: 'https://statista.com', description: `Overview of the ${cleanTopic} market landscape, key players, and growth metrics.` },
+      { name: 'Academic Research', title: `Recent advances in ${cleanTopic}`, type: 'research', date: '2024-2025', url: 'https://arxiv.org', description: 'Peer-reviewed research documenting technical progress and scientific developments.' },
+      { name: 'TechCrunch', title: `${cleanTopic} latest developments`, type: 'news', date: '2025', url: 'https://techcrunch.com', description: 'Industry coverage of recent product launches, funding rounds, and market moves.' },
     ],
     earlySignals: [
       { signal: `Emerging new approaches to ${cleanTopic}`, why: 'Early-stage research suggests alternative approaches may gain traction.', confidence: 'early', source: 'Research papers' },
     ],
     summaryModes: {
       quick: `${cleanTopic} is an area of growing importance with significant activity across research, commercial development, and public discourse. Multiple stakeholders are investing in its development.`,
-      deep: `A comprehensive analysis of ${cleanTopic} reveals a complex landscape of technical development, commercial competition, and social implications that rewards careful study...`,
-      student: `${cleanTopic} is a topic worth learning about because it's going to affect many fields and careers. At its core, it's about [core concept] and why people and organizations are investing time and money in developing it further.`,
+      deep: `A comprehensive analysis of ${cleanTopic} reveals a complex landscape of technical development, commercial competition, and social implications that rewards careful study.`,
+      student: `${cleanTopic} is a topic worth learning about because it's going to affect many fields and careers. At its core, it involves key technological and social dynamics that are reshaping industries.`,
       business: `${cleanTopic} represents both an opportunity and a risk for businesses. Organizations that develop capability early will gain competitive advantages, while those that ignore it risk disruption.`,
-      builder: `For builders, ${cleanTopic} offers opportunities to create tools, products, and services that address real needs. Key starting points: understand the current technical stack, identify underserved user segments, and look for problems that existing solutions don't address well.`,
-      research: `${cleanTopic} has several important open research questions including technical challenges around scale and reliability, social questions around equity and access, and policy questions around appropriate governance.`,
+      builder: `For builders, ${cleanTopic} offers opportunities to create tools, products, and services that address real needs. Key starting points: understand the current technical stack and identify underserved user segments.`,
+      research: `${cleanTopic} has several important open research questions including technical challenges around scale and reliability, and policy questions around appropriate governance.`,
     },
     projectIdeas: [
-      { title: `${cleanTopic} Dashboard`, problem: 'Lack of comprehensive visibility into the ${cleanTopic} landscape', solution: `Aggregation and visualization platform for ${cleanTopic} data and trends`, tech: ['React', 'Node.js', 'Relevant APIs'], difficulty: 'Medium', mvp: 'Basic data aggregation and visualization', users: 'Researchers, professionals, investors' },
+      { title: `${cleanTopic} Intelligence Dashboard`, problem: `Lack of comprehensive visibility into the ${cleanTopic} landscape`, solution: `Aggregation and visualization platform for ${cleanTopic} data and trends`, tech: ['React', 'Node.js', 'Relevant APIs'], difficulty: 'Medium', mvp: 'Basic data aggregation and visualization', users: 'Researchers, professionals, investors' },
     ],
     followUpQuestions: [
       { question: `What's the history of ${cleanTopic}?`, topic: `History of ${cleanTopic}` },
@@ -495,6 +563,62 @@ export function generateDynamicReport(topic) {
       { question: `What problems does ${cleanTopic} solve?`, topic: `${cleanTopic} Applications` },
       { question: `What could disrupt ${cleanTopic}?`, topic: `${cleanTopic} Disruption` },
     ],
+    // ── Past / Present / Future structured data ──
+    exactTopic: cleanTopic,
+    topicType: 'concept',
+    geographicContext: ['Global'],
+    timeContext: 'current',
+    past: {
+      origin: {
+        period: 'Historical',
+        location: 'Global',
+        description: `The foundations of ${cleanTopic} were laid through decades of research and development across academic institutions and industry. Early theoretical work established the conceptual basis, while subsequent technological advances made practical implementation possible.`,
+      },
+      importantPeople: [
+        { name: 'Early Researchers', role: 'Foundational Research', org: 'Academic Institutions', period: 'Early Development Phase', contribution: `Established the theoretical and technical foundations of ${cleanTopic} through peer-reviewed research.` },
+        { name: 'Industry Pioneers', role: 'Commercial Development', org: 'Leading Companies', period: 'Growth Phase', contribution: `Translated research into practical products and services, driving mainstream adoption of ${cleanTopic}.` },
+      ],
+      importantOrgs: [
+        { name: 'Academic Institutions', type: 'institution', role: `Primary source of fundamental research and talent for ${cleanTopic}.`, period: 'Ongoing' },
+        { name: 'Technology Companies', type: 'company', role: `Commercial development and deployment of ${cleanTopic} solutions at scale.`, period: 'Growth Phase–Present' },
+        { name: 'Government Bodies', type: 'government', role: `Regulation, funding, and strategic direction of ${cleanTopic} development.`, period: 'Recent' },
+      ],
+      turningPoints: [
+        { year: '2018–2020', event: 'Early Commercial Viability', significance: `${cleanTopic} first demonstrated consistent commercial viability beyond research settings.`, entities: ['Early adopters', 'Venture capital'] },
+        { year: '2022', event: 'Mainstream Adoption Begins', significance: `${cleanTopic} entered mainstream awareness driven by high-profile products and media coverage.`, entities: ['Industry leaders', 'Media'] },
+        { year: '2024–2025', event: 'Market Maturation', significance: `${cleanTopic} ecosystem matured with established players, standards emerging, and regulatory attention increasing.`, entities: ['Regulators', 'Established companies'] },
+      ],
+    },
+    present: {
+      currentStatus: `${cleanTopic} is currently in an active development and adoption phase. Multiple organizations are investing in capability development, and the ecosystem is maturing rapidly. Regulatory frameworks are beginning to take shape across major markets.`,
+      statusDate: 'September 2026',
+      latestDevelopments: [
+        { headline: `Major Investment in ${cleanTopic} Continues`, date: 'Q3 2025', entity: 'Industry', summary: `Significant capital continues to flow into ${cleanTopic}, with venture funding and corporate investment reaching new levels as organizations position for long-term leadership.`, source: 'Industry Reports', url: 'https://techcrunch.com', type: 'news' },
+        { headline: `${cleanTopic} Regulatory Framework Developments`, date: 'Mid 2025', entity: 'Regulators', summary: `Multiple jurisdictions have introduced or are developing regulatory frameworks specifically addressing ${cleanTopic}, reflecting its growing societal importance and potential risks.`, source: 'Reuters', url: 'https://reuters.com', type: 'regulatory' },
+      ],
+      groupedCoverage: [
+        { event: `${cleanTopic} industry developments`, date: 'Q3 2025', sources: [{ name: 'TechCrunch', url: 'https://techcrunch.com' }, { name: 'Wired', url: 'https://wired.com' }] },
+      ],
+    },
+    future: {
+      disclaimer: 'AI-generated scenario analysis based on current signals. Not confirmed information.',
+      nearTerm: [
+        { horizon: 'Next several months', scenario: `${cleanTopic} Capability Acceleration`, signals: ['Continued investment', 'New product launches', 'Growing developer ecosystem'], opportunities: ['First-mover advantage in new applications', 'Building expertise now'], challenges: ['Rapid pace of change makes planning difficult', 'Talent competition'], trigger: 'New capability breakthrough or major product launch', impact: 'Expanded capabilities and new use cases', uncertainty: 'low', type: 'growth' },
+        { horizon: 'Next several months', scenario: 'Increased Regulatory Scrutiny', signals: ['Government hearings', 'Public concern', 'Industry incidents'], opportunities: ['Compliance tooling and consulting', 'Safety-focused differentiation'], challenges: ['Compliance costs', 'Uncertain requirements'], trigger: 'High-profile incident or political pressure', impact: 'Increased compliance burden; possible slowdown in some regions', uncertainty: 'medium', type: 'risk' },
+      ],
+      mediumTerm: [
+        { horizon: '1-3 years', scenario: 'Market Consolidation', signals: ['M&A activity increasing', 'VC pullback from smaller players', 'Platform dominance emerging'], opportunities: ['Acquisition targets become valuable', 'Specialized niches remain viable'], challenges: ['Smaller players face existential pressure', 'Innovation may concentrate in few firms'], trigger: 'Two or three dominant platforms emerge with significant network effects', impact: 'Structural change in competitive landscape; higher barriers to entry', uncertainty: 'medium', type: 'growth' },
+      ],
+      longTerm: [
+        { horizon: '3-10 years', scenario: 'Commoditization and Democratization', signals: ['Open source alternatives', 'Standardization efforts', 'Cost curves declining'], opportunities: ['Massive expansion of accessible applications', 'New business models', 'Global access'], challenges: ['Monetization pressure on current leaders', 'Quality differentiation harder'], trigger: 'Open source equivalent reaches near-parity with commercial solutions', impact: 'Democratization of access; commoditization of current differentiators', uncertainty: 'medium', type: 'growth' },
+      ],
+      futureSignals: [
+        { signal: 'Increasing talent competition', impact: 'Concentration of expertise in well-funded organizations', implication: 'Skills gap may limit adoption rate; training and education market grows' },
+        { signal: 'Regulatory frameworks crystallizing', impact: 'Compliance requirements become clearer', implication: 'Compliance becomes a competitive differentiator; certified players gain trust premium' },
+        { signal: 'Open source alternatives gaining capability', impact: 'Reduces dependence on proprietary solutions', implication: 'Commoditization of core capabilities; competition shifts to services and integration' },
+        { signal: 'International competition intensifying', impact: 'Multiple national strategies and standards', implication: 'Possible regulatory fragmentation; regional champions may emerge' },
+      ],
+    },
   };
 }
 
@@ -507,11 +631,30 @@ const REPORTS = {
   'nvidia': NVIDIA_REPORT,
 };
 
+// More precise matching — avoids returning AI_REPORT for "OpenAI Sora", "AI agents", etc.
 export function getMockReport(topic) {
   const key = topic.toLowerCase().trim();
-  // Fuzzy match
+
+  // Exact match first
+  if (REPORTS[key]) return { ...REPORTS[key] };
+
+  // Only use a report if the topic IS that exact concept (not just contains it)
+  // e.g. "ai" matches AI_REPORT, but "ai agents in healthcare" should use dynamic
   for (const [k, v] of Object.entries(REPORTS)) {
-    if (key === k || key.includes(k) || k.includes(key)) return { ...v };
+    // Exact phrase match (the key is the full search)
+    if (key === k) return { ...v };
+    // Topic is primarily about this exact key (key is the only meaningful word)
+    if (k.length > 3 && key === k) return { ...v };
+    // Short aliases like 'ai' — only match if the full topic is just that
+    if (k === 'ai' && key === 'ai') return { ...v };
+    if (k === 'ai' && key === 'artificial intelligence') return { ...v };
+    // Topic starts with key and key is sufficiently specific (>5 chars)
+    if (k.length > 5 && key.startsWith(k) && key.replace(k, '').trim().length < 3) return { ...v };
+    // Exact key-equals-topic for longer keys
+    if (k.length >= 5 && key === k) return { ...v };
+    // nvidia → only exact
+    if (k === 'nvidia' && key === 'nvidia') return { ...v };
   }
+
   return generateDynamicReport(topic);
 }
