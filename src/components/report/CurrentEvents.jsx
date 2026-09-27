@@ -7,6 +7,7 @@ import React from 'react';
 import { SectionWrapper } from '../layout/SectionWrapper';
 import { Newspaper, ExternalLink, Calendar, HelpCircle, ShieldCheck } from 'lucide-react';
 import { EvidenceTag } from '../common/EvidenceTag';
+import { stripHtml } from '../../utils/formatters';
 
 export function CurrentEvents({ events = [] }) {
   if (!events || events.length === 0) return null;
@@ -87,9 +88,11 @@ export function CurrentEvents({ events = [] }) {
                 color: 'var(--text-primary)',
                 marginBottom: '8px',
                 lineHeight: '1.35',
+                wordBreak: 'break-word',
+                overflowWrap: 'anywhere',
               }}
             >
-              {ev.headline}
+              {stripHtml(ev.headline)}
             </h4>
 
             {/* Summary */}
@@ -99,9 +102,11 @@ export function CurrentEvents({ events = [] }) {
                 color: 'var(--text-secondary)',
                 lineHeight: '1.6',
                 marginBottom: '12px',
+                wordBreak: 'break-word',
+                overflowWrap: 'anywhere',
               }}
             >
-              {ev.summary}
+              {stripHtml(ev.summary)}
             </p>
 
             {/* Why it matters */}

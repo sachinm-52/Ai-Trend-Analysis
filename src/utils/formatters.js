@@ -38,3 +38,53 @@ export function formatRelativeTime(timestamp) {
   const days = Math.floor(hours / 24);
   return `${days}d ago`;
 }
+
+/**
+ * Robust HTML entity decoder and tag stripper for safe readable rendering.
+ */
+export function stripHtml(input) {
+  if (!input || typeof input !== 'string') return '';
+  let text = input;
+
+  const entityMap = {
+    '&nbsp;': ' ',
+    '&amp;': '&',
+    '&quot;': '"',
+    '&apos;': "'",
+    '&#39;': "'",
+    '&#x27;': "'",
+    '&#47;': '/',
+    '&#x2F;': '/',
+    '&lt;': '<',
+    '&gt;': '>',
+    '&ndash;': '–',
+    '&mdash;': '—',
+    '&hellip;': '…',
+  };
+
+  // Decode numeric & hex entities
+  text = text.replace(/&#(\d+);/g, (_, dec) => String.fromCharCode(dec));
+  text = text.replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+
+  // Decode common named entities
+  for (const [entity, char] of Object.entries(entityMap)) {
+    text = text.replaceAll(entity, char);
+  }
+
+  // Remove CDATA
+  text = text.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/gi, '$1');
+
+  // Strip all HTML tags
+  text = text.replace(/<[^>]*>/g, ' ');
+
+  // Second pass in case tags were unescaped
+  text = text.replace(/<[^>]*>/g, ' ');
+
+  // Second pass entity decode
+  for (const [entity, char] of Object.entries(entityMap)) {
+    text = text.replaceAll(entity, char);
+  }
+
+  return text.replace(/\s+/g, ' ').trim();
+}
+

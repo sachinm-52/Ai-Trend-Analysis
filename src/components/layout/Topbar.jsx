@@ -81,13 +81,16 @@ export function Topbar({
             </button>
           ) : null}
 
-          <div
-            onClick={onGoHome}
+          <a
+            href="/"
+            onClick={(e) => { e.preventDefault(); onGoHome(); }}
+            aria-label="Go to Trend Intelligence home page"
             style={{
               display: 'flex',
               alignItems: 'center',
               gap: '10px',
               cursor: 'pointer',
+              textDecoration: 'none',
             }}
           >
             <div
@@ -129,7 +132,7 @@ export function Topbar({
                 PLATFORM
               </span>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* Center: Search (if in report mode) */}

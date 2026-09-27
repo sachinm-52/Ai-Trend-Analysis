@@ -18,19 +18,44 @@ export default function App() {
   const [isExportOpen, setIsExportOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
-  const { report, loading, error, currentTopic, loadReport, resetReport } = useReport();
+  const {
+    report,
+    loading,
+    error,
+    currentTopic,
+    loadReport,
+    refreshReport,
+    deepDiveReport,
+    searchMore,
+    isRefreshing,
+    isDeepDiving,
+    resetReport,
+    loadingMessage,
+    loadingProgress,
+  } = useReport();
+
   const { theme, toggleTheme, isBookmarked, toggleBookmark, history, addHistory } = usePersistence();
 
-  const handleSearch = async (term) => {
+  const handleSearch = async (term, mode = 'quick') => {
     if (!term || !term.trim()) return;
     setView('report');
-    await loadReport(term);
+    await loadReport(term, mode);
     addHistory(term);
   };
 
   const handleGoHome = () => {
     setView('landing');
     resetReport();
+  };
+
+  const handleRefresh = async () => {
+    if (!currentTopic) return;
+    await refreshReport(currentTopic);
+  };
+
+  const handleDeepDive = async () => {
+    if (!currentTopic) return;
+    await deepDiveReport(currentTopic);
   };
 
   const {
@@ -74,6 +99,14 @@ export default function App() {
             onRetry={() => loadReport(currentTopic)}
             onBack={handleGoHome}
             onSelectTopic={handleSearch}
+            onRefresh={handleRefresh}
+            onDeepDive={handleDeepDive}
+            onSearchMore={searchMore}
+            isRefreshing={isRefreshing}
+            isDeepDiving={isDeepDiving}
+            currentTopic={currentTopic}
+            loadingMessage={loadingMessage}
+            loadingProgress={loadingProgress}
           />
         )}
       </div>

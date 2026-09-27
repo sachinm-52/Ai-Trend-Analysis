@@ -62,7 +62,43 @@ export const MOMENTUM_CONFIG = {
 };
 
 export const EVIDENCE_LEVELS = {
-  high: { label: 'STRONG EVIDENCE', color: '#34D399', bg: 'rgba(52,211,153,0.1)' },
-  medium: { label: 'MODERATE EVIDENCE', color: '#FBBF24', bg: 'rgba(251,191,36,0.1)' },
-  low: { label: 'EMERGING / LOW EVIDENCE', color: '#94A3B8', bg: 'rgba(148,163,184,0.1)' },
+  high: { label: 'STRONG EVIDENCE', color: '#10B981', bg: 'rgba(16,185,129,0.12)', border: 'rgba(16,185,129,0.3)' },
+  medium: { label: 'MODERATE EVIDENCE', color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', border: 'rgba(245,158,11,0.3)' },
+  low: { label: 'EMERGING / LOW EVIDENCE', color: '#94A3B8', bg: 'rgba(148,163,184,0.12)', border: 'rgba(148,163,184,0.3)' },
+  verified: { label: 'VERIFIED FACT', color: '#10B981', bg: 'rgba(16,185,129,0.12)', border: 'rgba(16,185,129,0.3)' },
+  reported: { label: 'REPORTED CLAIM', color: '#0EA5E9', bg: 'rgba(14,165,233,0.12)', border: 'rgba(14,165,233,0.3)' },
+  analysis: { label: 'AI ANALYSIS', color: '#8B5CF6', bg: 'rgba(139,92,246,0.12)', border: 'rgba(139,92,246,0.3)' },
+  scenario: { label: 'FUTURE SCENARIO', color: '#F59E0B', bg: 'rgba(245,158,11,0.12)', border: 'rgba(245,158,11,0.3)' },
 };
+
+export const EVIDENCE_TYPES = {
+  VERIFIED: {
+    key: 'VERIFIED',
+    label: 'VERIFIED FACT',
+    color: '#10B981',
+    bg: 'rgba(16, 185, 129, 0.12)',
+    border: 'rgba(16, 185, 129, 0.3)',
+  },
+  REPORTED: {
+    key: 'REPORTED',
+    label: 'REPORTED CLAIM',
+    color: '#0EA5E9',
+    bg: 'rgba(14, 165, 233, 0.12)',
+    border: 'rgba(14, 165, 233, 0.3)',
+  },
+  AI_ANALYSIS: {
+    key: 'AI_ANALYSIS',
+    label: 'AI ANALYSIS',
+    color: '#8B5CF6',
+    bg: 'rgba(139, 92, 246, 0.12)',
+    border: 'rgba(139, 92, 246, 0.3)',
+  },
+  FUTURE_SCENARIO: {
+    key: 'FUTURE_SCENARIO',
+    label: 'FUTURE SCENARIO',
+    color: '#F59E0B',
+    bg: 'rgba(245, 158, 11, 0.12)',
+    border: 'rgba(245, 158, 11, 0.3)',
+  },
+};
+

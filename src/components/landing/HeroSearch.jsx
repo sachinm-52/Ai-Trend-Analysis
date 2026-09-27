@@ -1,27 +1,28 @@
 // ═══════════════════════════════════════════════════
 // AI Trend Analyzer — HeroSearch Component
-// Central search box with animated placeholder cycling
+// Central search box with Quick Search vs Deep Research mode (Requirement #25)
 // ═══════════════════════════════════════════════════
 
 import React, { useState, useEffect } from 'react';
-import { Search, ArrowRight, Sparkles, Zap } from 'lucide-react';
+import { Search, ArrowRight, Sparkles, Zap, BrainCircuit, ShieldCheck } from 'lucide-react';
 import { EXAMPLE_TOPICS } from '../../data/mockDatabase';
 
 const PLACEHOLDERS = [
-  'Artificial Intelligence',
-  'NVIDIA and the GPU Moat',
-  'Indian EV Market Adoption',
-  'Tesla Robotaxi Strategy',
-  'OpenAI o3 & Reasoning Models',
-  'SpaceX Starship Commercialization',
-  'Cybersecurity in the AI Era',
-  'Bengaluru Startup Ecosystem',
-  'Global Semiconductor Race',
-  'Quantum Computing Breakthroughs',
+  'Why is NVIDIA trending?',
+  'What is trending in AI today?',
+  'India AI regulation 2026',
+  'Latest OpenAI news',
+  'Latest developments in quantum computing',
+  'What happened in Bengaluru today?',
+  'Latest Tesla news',
+  'What is happening with Bitcoin?',
+  'Latest Android update',
+  'Best AI tools for students',
 ];
 
 export function HeroSearch({ onSearch, recentSearches = [], onSelectRecent }) {
   const [query, setQuery] = useState('');
+  const [mode, setMode] = useState('quick'); // 'quick' | 'deep'
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
 
   // Cycle animated placeholder
@@ -36,15 +37,14 @@ export function HeroSearch({ onSearch, recentSearches = [], onSelectRecent }) {
     e.preventDefault();
     const clean = query.trim();
     if (clean) {
-      onSearch(clean);
+      onSearch(clean, mode);
     } else {
-      // If empty, search the current placeholder
-      onSearch(PLACEHOLDERS[placeholderIndex]);
+      onSearch(PLACEHOLDERS[placeholderIndex], mode);
     }
   };
 
   return (
-    <div style={{ maxWidth: '780px', margin: '0 auto', textAlign: 'center' }}>
+    <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
       {/* Eyebrow Pill */}
       <div
         style={{
@@ -63,8 +63,8 @@ export function HeroSearch({ onSearch, recentSearches = [], onSelectRecent }) {
           boxShadow: '0 0 20px rgba(56, 189, 248, 0.15)',
         }}
       >
-        <Sparkles size={14} />
-        <span>NEXT-GENERATION TREND INTELLIGENCE</span>
+        <ShieldCheck size={14} style={{ color: '#10b981' }} />
+        <span>REAL-TIME VERIFIED RESEARCH ENGINE</span>
       </div>
 
       {/* Hero Headline */}
@@ -79,8 +79,8 @@ export function HeroSearch({ onSearch, recentSearches = [], onSelectRecent }) {
           marginBottom: '16px',
         }}
       >
-        Understand{' '}
-        <span className="text-gradient">What's Happening</span>
+        Research Anything on the{' '}
+        <span className="text-gradient">Live Verified Web</span>
       </h1>
 
       {/* Subtitle */}
@@ -88,13 +88,71 @@ export function HeroSearch({ onSearch, recentSearches = [], onSelectRecent }) {
         style={{
           fontSize: 'clamp(15px, 2vw, 18px)',
           color: 'var(--text-secondary)',
-          maxWidth: '620px',
-          margin: '0 auto 36px',
+          maxWidth: '640px',
+          margin: '0 auto 28px',
           lineHeight: 1.6,
         }}
       >
-        Turn any topic, technology, company, person, or social movement into a structured, living intelligence report — from historical roots to future scenarios.
+        Search first, cross-check multi-source evidence, verify facts & citations, and synthesize structured intelligence without hallucinations.
       </p>
+
+      {/* Research Mode Selector (Requirement #25) */}
+      <div
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '6px',
+          padding: '4px',
+          borderRadius: '999px',
+          backgroundColor: 'var(--bg-surface-2)',
+          border: '1px solid var(--border)',
+          marginBottom: '20px',
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => setMode('quick')}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '7px 16px',
+            borderRadius: '999px',
+            border: 'none',
+            backgroundColor: mode === 'quick' ? 'var(--accent)' : 'transparent',
+            color: mode === 'quick' ? '#0f172a' : 'var(--text-secondary)',
+            fontSize: '13px',
+            fontWeight: 700,
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+        >
+          <Zap size={14} />
+          <span>⚡ Quick Search</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setMode('deep')}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '6px',
+            padding: '7px 16px',
+            borderRadius: '999px',
+            border: 'none',
+            backgroundColor: mode === 'deep' ? 'var(--accent)' : 'transparent',
+            color: mode === 'deep' ? '#0f172a' : 'var(--text-secondary)',
+            fontSize: '13px',
+            fontWeight: 700,
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+        >
+          <BrainCircuit size={14} />
+          <span>🧠 Deep Research</span>
+        </button>
+      </div>
 
       {/* Large Search Box */}
       <form onSubmit={handleSubmit} style={{ position: 'relative', marginBottom: '20px' }}>
@@ -137,7 +195,7 @@ export function HeroSearch({ onSearch, recentSearches = [], onSelectRecent }) {
               fontWeight: 600,
             }}
           >
-            <span>Analyze</span>
+            <span>{mode === 'deep' ? 'Deep Research' : 'Research'}</span>
             <ArrowRight size={17} />
           </button>
         </div>
@@ -155,12 +213,18 @@ export function HeroSearch({ onSearch, recentSearches = [], onSelectRecent }) {
         }}
       >
         <span style={{ color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-          <Zap size={12} /> Popular:
+          <Zap size={12} /> Test Queries:
         </span>
-        {EXAMPLE_TOPICS.slice(0, 6).map((topic) => (
+        {[
+          'Why is NVIDIA trending?',
+          'India AI regulation 2026',
+          'Latest OpenAI news',
+          'What happened in Bengaluru today?',
+          'What is happening with Bitcoin?',
+        ].map((topic) => (
           <button
             key={topic}
-            onClick={() => onSearch(topic)}
+            onClick={() => onSearch(topic, mode)}
             className="tag"
             style={{
               cursor: 'pointer',

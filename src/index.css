@@ -76,23 +76,124 @@
   --shadow-glow-strong: 0 0 60px rgba(56, 189, 248, 0.35);
 }
 
-/* Light Mode Override */
+/* Light Mode Override — Enhanced Contrast */
 [data-theme="light"] {
   --bg-base: #F0F4FA;
   --bg-surface: #FFFFFF;
-  --bg-surface-2: #F7F9FC;
-  --bg-surface-3: #EEF2F8;
-  --bg-glass: rgba(255, 255, 255, 0.85);
-  --border: #D1DCF0;
-  --border-bright: #B0C4DE;
-  --text-primary: #0F1C2E;
-  --text-secondary: #4A5E78;
-  --text-muted: #9AAAC0;
+  --bg-surface-2: #F2F5FA;
+  --bg-surface-3: #E8EDF5;
+  --bg-glass: rgba(255, 255, 255, 0.92);
+  --border: #C5D0E3;
+  --border-bright: #98AECC;
+  --text-primary: #0A1628;
+  --text-secondary: #3A4E6A;
+  --text-muted: #7A8FAA;
   --text-on-accent: #FFFFFF;
-  --accent-glow: rgba(56, 189, 248, 0.1);
+  --accent: #0284C7;
+  --accent-glow: rgba(2, 132, 199, 0.1);
+  --accent-2: #7C3AED;
+  --accent-3: #059669;
+  --accent-warm: #EA580C;
+  --accent-red: #DC2626;
+  --accent-yellow: #CA8A04;
+  --positive: #059669;
+  --negative: #DC2626;
+  --warning: #CA8A04;
+  --neutral: #475569;
+  --rising: #059669;
+  --stable: #0284C7;
+  --declining: #DC2626;
+  --emerging: #7C3AED;
+  --evidence-high: #059669;
+  --evidence-medium: #CA8A04;
+  --evidence-low: #475569;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
   --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
   --shadow-lg: 0 12px 40px rgba(0,0,0,0.15);
+  --shadow-glow: 0 0 30px rgba(2, 132, 199, 0.12);
+  --shadow-glow-strong: 0 0 60px rgba(2, 132, 199, 0.2);
+}
+
+/* Light mode SVG fill overrides */
+[data-theme="light"] .graph-label { fill: var(--text-secondary); }
+[data-theme="light"] .timeline-node { stroke: var(--accent); fill: var(--bg-surface); }
+[data-theme="light"] .graph-edge { stroke: var(--border-bright); }
+
+/* ── Print / PDF Export Styles (A4 optimized) ── */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 15mm 18mm 15mm;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-family: 'Inter', 'Segoe UI', -apple-system, Helvetica, Arial, sans-serif !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+    -webkit-font-smoothing: antialiased !important;
+  }
+
+  /* Hide non-printable UI */
+  header, .sidebar-item, button, form, .modal-backdrop,
+  .ticker-track, .btn, .tag:hover, [data-no-print] {
+    display: none !important;
+  }
+
+  /* Page break controls */
+  .glass-card, .hover-card, section, [class*="Section"] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+    color: #111827 !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: #0284C7 !important;
+    text-decoration: underline !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #6B7280;
+    word-break: break-all;
+  }
+
+  /* Clean card backgrounds for print */
+  .glass-card {
+    background: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Table borders for print readability */
+  table {
+    border-collapse: collapse;
+  }
+  table th, table td {
+    border: 1px solid #d1d5db;
+    padding: 6px 10px;
+    font-size: 10pt;
+  }
 }
 
 /* ── Reset & Base ── */
@@ -242,7 +343,10 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius-lg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
+
 
 /* ── Interactive Hover Card ── */
 .hover-card {
@@ -525,3 +629,24 @@ img { max-width: 100%; display: block; }
 .ticker-track { overflow: hidden; }
 .ticker-content { display: flex; gap: 32px; animation: tickerMove 30s linear infinite; width: max-content; }
 .ticker-content:hover { animation-play-state: paused; }
+
+/* ── Keyframe Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes tickerMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}

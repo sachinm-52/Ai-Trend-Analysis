@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { ExternalLink, Calendar, Building2, Tag } from 'lucide-react';
+import { stripHtml } from '../../utils/formatters';
 
 const TYPE_COLORS = {
   news: { bg: 'rgba(56,189,248,0.08)', border: 'rgba(56,189,248,0.2)', text: 'var(--accent)' },
@@ -98,15 +99,17 @@ export function NewsCard({ item, compact = false }) {
         color: 'var(--text-primary)',
         margin: 0,
         lineHeight: '1.35',
+        wordBreak: 'break-word',
+        overflowWrap: 'anywhere',
       }}>
-        {item.headline || item.title}
+        {stripHtml(item.headline || item.title)}
       </h4>
 
       {/* Entity */}
       {item.entity && (
         <div style={{ display: 'flex', alignItems: 'center', gap: '5px', fontSize: '11.5px', color: 'var(--text-muted)' }}>
           <Building2 size={12} style={{ color: 'var(--accent-2)' }} />
-          <span style={{ color: 'var(--text-secondary)', fontWeight: 500 }}>{item.entity}</span>
+          <span style={{ color: 'var(--text-secondary)', fontWeight: 500 }}>{stripHtml(item.entity)}</span>
         </div>
       )}
 
@@ -117,8 +120,10 @@ export function NewsCard({ item, compact = false }) {
           color: 'var(--text-secondary)',
           lineHeight: '1.6',
           margin: 0,
+          wordBreak: 'break-word',
+          overflowWrap: 'anywhere',
         }}>
-          {item.summary}
+          {stripHtml(item.summary)}
         </p>
       )}
 
